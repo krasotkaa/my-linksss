@@ -1,0 +1,194 @@
+/* CSS Variables for Fonts */
+:root {
+	/* Primary Font - Montserrat */
+	--font-primary: 'Montserrat', sans-serif;
+	--font-primary-regular: 400;
+	--font-primary-medium: 500;
+	--font-primary-semibold: 600;
+	--font-primary-bold: 700;
+
+	/* Secondary Font - Poppins */
+	--font-secondary: 'Poppins', sans-serif;
+	--font-secondary-regular: 400;
+	--font-secondary-medium: 500;
+	--font-secondary-semibold: 600;
+
+	/* Body Font - Inter */
+	--font-body: 'Inter', sans-serif;
+	--font-body-regular: 400;
+	--font-body-medium: 500;
+	--font-body-semibold: 600;
+}
+
+/* Styles by default */
+body {
+	font-family: var(--font-body);
+	font-size: 16px;
+	line-height: 1.6;
+	color: var(--text-color);
+	background: var(--background-color);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-family: var(--font-primary);
+	font-weight: 600;
+}
+
+.header__main-profile {
+	font-family: var(--font-primary);
+	font-weight: 700;
+	font-size: 2rem;
+	letter-spacing: -0.5px;
+}
+
+.bio {
+	font-family: var(--font-secondary);
+	font-weight: 400;
+	font-size: 1rem;
+}
+
+.links-container__title {
+	font-family: var(--font-secondary);
+	font-weight: 500;
+	font-size: 1rem;
+}
+
+footer p {
+	font-family: var(--font-body);
+	font-weight: 400;
+	font-size: 0.875rem;
+}
+
+/* Utility Classes for Fonts */
+.font-primary {
+	font-family: var(--font-primary);
+}
+
+.font-secondary {
+	font-family: var(--font-secondary);
+}
+
+.font-body {
+	font-family: var(--font-body);
+}
+
+/* Font Weight Utility Classes */
+.fw-regular {
+	font-weight: var(--font-primary-regular);
+}
+
+.fw-medium {
+	font-weight: var(--font-primary-medium);
+}
+
+.fw-semibold {
+	font-weight: var(--font-primary-semibold);
+}
+
+.fw-bold {
+	font-weight: var(--font-primary-bold);
+}
+
+/* Montserrat Font Faces */
+@font-face {
+	font-family: 'Montserrat';
+	src: url('fonts/Montserrat/Montserrat-Regular.woff2') format('woff2');
+	font-weight: 400;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Montserrat';
+	src: url('fonts/Montserrat/Montserrat-Medium.woff2') format('woff2');
+	font-weight: 500;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Montserrat';
+	src: url('fonts/Montserrat/Montserrat-SemiBold.woff2') format('woff2');
+	font-weight: 600;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Montserrat';
+	src: url('fonts/Montserrat/Montserrat-Bold.woff2') format('woff2');
+	font-weight: 700;
+	font-style: normal;
+	font-display: swap;
+}
+
+/* Poppins Font Faces */
+@font-face {
+	font-family: 'Poppins';
+	src: url('fonts/Poppins/Poppins-Regular.woff2') format('woff2');
+	font-weight: 400;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Poppins';
+	src: url('fonts/Poppins/Poppins-Medium.woff2') format('woff2');
+	font-weight: 500;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Poppins';
+	src: url('fonts/Poppins/Poppins-SemiBold.woff2') format('woff2');
+	font-weight: 600;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Poppins';
+	src: url('fonts/Poppins/Poppins-Bold.woff2') format('woff2');
+	font-weight: 700;
+	font-style: normal;
+	font-display: swap;
+}
+
+/* Inter Font Faces */
+@font-face {
+	font-family: 'Inter';
+	src: url('fonts/Inter/Inter28pt-Regular.woff2') format('woff2');
+	font-weight: 400;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Inter';
+	src: url('fonts/Inter/Inter-Medium.woff2') format('woff2');
+	font-weight: 500;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Inter';
+	src: url('fonts/Inter/Inter-SemiBold.woff2') format('woff2');
+	font-weight: 600;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Inter';
+	src: url('fonts/Inter/Inter-Bold.woff2') format('woff2');
+	font-weight: 700;
+	font-style: normal;
+	font-display: swap;
+}

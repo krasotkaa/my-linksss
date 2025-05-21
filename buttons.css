@@ -1,0 +1,483 @@
+/* Light/Dark Theme Toggle */
+
+.switch {
+	position: relative;
+	user-select: none;
+	-webkit-tap-highlight-color: transparent;
+}
+
+.switch input {
+	height: 100%;
+	width: 100%;
+	position: absolute;
+	left: 0;
+	top: 0;
+	opacity: 0;
+	z-index: 100;
+	cursor: pointer;
+}
+
+.switch label {
+	height: 40px;
+	width: 72px;
+	background-color: black;
+	border-radius: 50px;
+	display: block;
+	box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.2),
+		inset 0 0 5px -2px rgba(0, 0, 0, 0.4), 0 4px 12px rgba(0, 0, 0, 0.15);
+	transition: box-shadow 0.3s ease;
+}
+
+.switch label:hover {
+	box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.2),
+		inset 0 0 5px -2px rgba(0, 0, 0, 0.4), 0 6px 16px rgba(0, 0, 0, 0.2);
+}
+
+.switch label:active {
+	box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.2),
+		inset 0 0 5px -2px rgba(0, 0, 0, 0.4), 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.switch label .bulb {
+	height: 32px;
+	width: 32px;
+	background-color: #606060;
+	border-radius: 50%;
+	position: relative;
+	top: 4px;
+	left: 4px;
+	display: block;
+	transition: 0.3s;
+	box-shadow: inset 0 0 1px 3px #606060, inset 0 0 6px 8px #404040,
+		0 20px 30px -10px rgba(0, 0, 0, 0.4);
+}
+
+.switch label .bulb .bulb-center {
+	position: absolute;
+	display: block;
+	height: 12px;
+	width: 12px;
+	background-color: #707070;
+	border-radius: 50%;
+	top: 50%;
+	left: 50%;
+	transition: 0.3s;
+	transform: translate(-50%, -50%);
+	box-shadow: inset 0 0 0 4px #808080;
+}
+
+.switch label .bulb .bulb-center:after {
+	content: '';
+	display: block;
+	height: 7px;
+	width: 7px;
+	background-color: #909090;
+	border-radius: 50%;
+	position: absolute;
+	transition: 0.3s;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	box-shadow: 0 0 2px 4px #606060;
+}
+
+.switch label .bulb .filament-1,
+.switch label .bulb .filament-2 {
+	position: absolute;
+	display: block;
+	height: 17px;
+	width: 17px;
+	border-radius: 50%;
+	top: 50%;
+	left: 50%;
+	overflow: hidden;
+	transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+.switch label .bulb .filament-1:after,
+.switch label .bulb .filament-1:before,
+.switch label .bulb .filament-2:after,
+.switch label .bulb .filament-2:before {
+	content: '';
+	display: block;
+	height: 3px;
+	width: 8px;
+	border-radius: 50%;
+	border: 2px solid #606060;
+	position: absolute;
+	transition: 0.3s;
+	top: -2px;
+	left: -1px;
+	transform: rotate(-10deg);
+}
+
+.switch label .bulb .filament-1:before,
+.switch label .bulb .filament-2:before {
+	left: 7px;
+	transform: rotate(10deg);
+}
+
+.switch label .bulb .filament-2 {
+	transform: translate(-50%, -50%) rotate(45deg) !important;
+}
+
+.switch label .bulb .reflections {
+	height: 100%;
+	width: 100%;
+	display: block;
+	border-radius: 50%;
+	overflow: hidden;
+	position: absolute;
+	z-index: 90;
+	perspective: 35px;
+}
+
+.switch label .bulb .reflections span {
+	height: 40px;
+	width: 40px;
+	border-radius: 50%;
+	background-image: linear-gradient(
+		-135deg,
+		transparent 10%,
+		rgba(255, 255, 255, 0.3)
+	);
+	position: absolute;
+	left: -20px;
+	bottom: -22px;
+}
+
+.switch label .bulb .reflections span:after {
+	content: '';
+	display: block;
+	height: 17px;
+	width: 10px;
+	position: absolute;
+	top: -18px;
+	right: -20px;
+	border-radius: 50%;
+	box-shadow: 4px -2px 0 -3px rgba(255, 255, 255, 0.4);
+	filter: blur(1px);
+	transform: rotate(-10deg);
+}
+
+.switch label .bulb .reflections:after {
+	content: '';
+	display: block;
+	height: 40px;
+	width: 25px;
+	background-image: linear-gradient(
+		80deg,
+		rgba(255, 255, 255, 0.05) 45%,
+		rgba(255, 255, 255, 0.5)
+	);
+	border-radius: 10% 20% 50% 30% / 30% 60% 30% 40%;
+	position: absolute;
+	transform-style: preserve-3d;
+	transform: rotateX(-25deg) rotate(-35deg) skewx(-15deg) translate(5px, -10px);
+	top: -4px;
+	left: -2px;
+}
+
+.switch label .bulb .reflections:before {
+	content: '';
+	display: block;
+	position: absolute;
+	height: 5px;
+	width: 15px;
+	background-image: linear-gradient(
+		to right,
+		transparent,
+		rgba(255, 255, 255, 0.15)
+	);
+	bottom: 5px;
+	right: 0px;
+	transform: rotate(45deg);
+}
+
+/* Sparks */
+
+.switch label .bulb .sparks .spark1 {
+	display: block;
+	height: 1px;
+	width: 1px;
+	background-color: #d1b82b;
+	position: absolute;
+	right: -2px;
+	border-radius: 50%;
+	bottom: 11px;
+	transition: 0.4s;
+	opacity: 0;
+}
+
+.switch label .bulb .sparks .spark2 {
+	display: block;
+	height: 2px;
+	width: 2px;
+	background-color: #d1b82b;
+	position: absolute;
+	right: 10px;
+	border-radius: 50%;
+	bottom: 40px;
+	transition: 0.4s;
+	opacity: 0;
+}
+
+.switch label .bulb .sparks .spark3 {
+	display: block;
+	height: 2px;
+	width: 2px;
+	background-color: #d1b82b;
+	position: absolute;
+	left: 10px;
+	border-radius: 50%;
+	bottom: 40px;
+	transition: 0.4s;
+	opacity: 0;
+}
+
+.switch label .bulb .sparks .spark4 {
+	display: block;
+	height: 2px;
+	width: 2px;
+	background-color: #d1b82b;
+	position: absolute;
+	left: 10px;
+	border-radius: 50%;
+	bottom: 10px;
+	transition: 0.4s;
+	opacity: 0;
+}
+
+/* Checked state */
+
+.switch input:checked + label .bulb {
+	left: 36px;
+	background-color: #a7694a;
+	box-shadow: inset 0 0 1px 3px #a56758, inset 0 0 6px 8px #6b454f,
+		0 20px 30px -10px rgba(0, 0, 0, 0.4), 0 0 30px 50px rgba(253, 184, 67, 0.1);
+}
+
+.switch input:checked + label .bulb .bulb-center {
+	background-color: #feed6b;
+	box-shadow: inset 0 0 0 4px #fdec6a, 0 0 12px 10px #bca83c,
+		0 0 20px 14px #a1664a;
+}
+
+.switch input:checked + label .bulb .bulb-center:after {
+	background-color: #fef401;
+	box-shadow: 0 0 2px 4px #fdb843;
+}
+
+.switch input:checked + label .bulb .filament-1:before,
+.switch input:checked + label .bulb .filament-1:after,
+.switch input:checked + label .bulb .filament-2:before,
+.switch input:checked + label .bulb .filament-2:after {
+	border-color: #fef4d5;
+}
+
+/* Spark animations */
+.switch input:checked + label .bulb .sparks .spark1 {
+	height: 1px;
+	width: 1px;
+	animation: spark1 0.8s ease-in-out;
+	animation-delay: 0.2s;
+}
+
+.switch input:checked + label .bulb .sparks .spark2 {
+	height: 1px;
+	width: 1px;
+	animation: spark2 1s ease-in-out;
+	animation-delay: 0.2s;
+}
+
+.switch input:checked + label .bulb .sparks .spark3 {
+	height: 1px;
+	width: 1px;
+	animation: spark3 0.8s ease-in-out;
+	animation-delay: 0.4s;
+}
+
+.switch input:checked + label .bulb .sparks .spark4 {
+	height: 1px;
+	width: 1px;
+	animation: spark4 0.7s ease-in-out;
+	animation-delay: 0.4s;
+}
+
+@keyframes spark1 {
+	0% {
+		right: -2px;
+		height: 1px;
+		width: 1px;
+		opacity: 0;
+	}
+	20% {
+		height: 2px;
+		width: 2px;
+		right: 0px;
+		opacity: 1;
+	}
+	30% {
+		right: -2px;
+		opacity: 1;
+		height: 2px;
+		width: 2px;
+	}
+	70% {
+		height: 2px;
+		width: 2px;
+	}
+	100% {
+		right: -30px;
+		bottom: 20px;
+		opacity: 0;
+	}
+}
+
+@keyframes spark2 {
+	0% {
+		height: 2px;
+		width: 2px;
+		opacity: 0;
+	}
+	30% {
+		opacity: 1;
+	}
+	100% {
+		right: -10px;
+		bottom: 40px;
+		opacity: 0;
+	}
+}
+
+@keyframes spark3 {
+	0% {
+		opacity: 0;
+	}
+	30% {
+		opacity: 1;
+		height: 2px;
+		width: 2px;
+	}
+	100% {
+		left: 0px;
+		bottom: 40px;
+		opacity: 0;
+		height: 2px;
+		width: 2px;
+	}
+}
+
+@keyframes spark4 {
+	0% {
+		opacity: 0;
+	}
+	30% {
+		opacity: 1;
+		height: 2px;
+		width: 2px;
+	}
+	100% {
+		left: -10px;
+		bottom: -10px;
+		opacity: 0;
+		height: 2px;
+		width: 2px;
+	}
+}
+
+@keyframes flow-on {
+	0% {
+		border-color: #2b2640;
+	}
+	100% {
+		border-color: #fff066;
+	}
+}
+
+@keyframes flow-off {
+	0% {
+		border-color: #fff066;
+	}
+	100% {
+		border-color: #2b2640;
+	}
+}
+
+.sparks {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	pointer-events: none;
+	z-index: 2;
+}
+
+.spark1,
+.spark2,
+.spark3,
+.spark4 {
+	position: absolute;
+	background-color: #fae100;
+	border-radius: 50%;
+	opacity: 0;
+	transition: all 0.3s ease;
+	box-shadow: 0 0 5px #fae100;
+}
+
+.spark1 {
+	width: 6px;
+	height: 6px;
+	top: 15px;
+	left: 35px;
+}
+
+.spark2 {
+	width: 5px;
+	height: 5px;
+	top: 25px;
+	left: 55px;
+}
+
+.spark3 {
+	width: 4px;
+	height: 4px;
+	top: 35px;
+	left: 25px;
+}
+
+.spark4 {
+	width: 5px;
+	height: 5px;
+	top: 20px;
+	left: 45px;
+}
+
+.switch input:checked + label .bulb .spark1 {
+	opacity: 1;
+	transform: translate(15px, -15px);
+}
+
+.switch input:checked + label .bulb .spark2 {
+	opacity: 1;
+	transform: translate(-12px, -18px);
+}
+
+.switch input:checked + label .bulb .spark3 {
+	opacity: 1;
+	transform: translate(18px, 12px);
+}
+
+.switch input:checked + label .bulb .spark4 {
+	opacity: 1;
+	transform: translate(-15px, 15px);
+}
+
+.switch input:not(:checked) + label .bulb .spark1,
+.switch input:not(:checked) + label .bulb .spark2,
+.switch input:not(:checked) + label .bulb .spark3,
+.switch input:not(:checked) + label .bulb .spark4 {
+	opacity: 0;
+	transform: translate(0, 0);
+}
